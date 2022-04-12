@@ -1,6 +1,7 @@
+# make the word seperate in to a list
 hangmanword = ['d', 'i', 'n', 'o', 's', 'a', 'u', 'r']
 
-
+# open other file as a function
 def hang0():
     f = open("hangman.txt.py", "r")
     print(f.read())
@@ -63,9 +64,12 @@ def hang9():
 
 hang0()
 guesses = ''
+# calculate the turns 
+# if guess wrong -1 turn press hangman thingy
 turns = 8
 while turns > 0:
     failed = 0
+    # player guessed word replace with underline
     for char in hangmanword:
         if char in guesses:
             print(char, )
@@ -73,22 +77,26 @@ while turns > 0:
         else:
             print("_", )
             failed += 1
-
+# winning screen
     if failed == 0:
         print("\033[1;32;40mYou won\033[1;37;40m")
         print("You saved Mr.Dino")
         hang9()
         break
+        # player guess
     guess = input("guess a character:")
     guesses += guess
     if guess not in hangmanword:
         turns -= 1
+        # tell player how many turns do they have
         print("HangDino is closer to drowned")
         print("Wrong")
         print("You have", + turns, 'more guesses')
     if turns == 0:
+        # lossing screen
         print("You killed Mr.Dino")
         print("\033[1;31;40mYou Lose\033[1;35;40m\n")
+        # print hangman thingy if they guess wrong
     if turns == 7:
         hang1()
     if turns == 6:
