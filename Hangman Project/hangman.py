@@ -80,6 +80,7 @@ while turns > 0:
 # winning screen
     if failed == 0:
         print("\033[1;32;40mYou won\033[1;37;40m")
+        print("The word is" + hangmanword)
         print("You saved Mr.Dino")
         hang9()
         break
@@ -89,12 +90,13 @@ while turns > 0:
     if guess not in hangmanword:
         turns -= 1
         # tell player how many turns do they have
-        print("HangDino is closer to drowned")
+        print("HangDino is closer to drop")
         print("Wrong")
         print("You have", + turns, 'more guesses')
     if turns == 0:
         # lossing screen
         print("You killed Mr.Dino")
+        print("The word is " + hangmanword)
         print("\033[1;31;40mYou Lose\033[1;35;40m\n")
         # print hangman thingy if they guess wrong
     if turns == 7:
